@@ -1,0 +1,1731 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ajuste para el header fijo */
+section {
+  scroll-margin-top: 80px;
+}
+
+body {
+  font-family: 'Poppins', 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Colores de la bandera argentina */
+:root {
+  --argentina-blue: #75AADB;
+  --argentina-blue-dark: #5C8EC6;
+  --argentina-white: #FFFFFF;
+  --argentina-gold: #FCBF49;
+}
+
+/* Header */
+.header {
+  background: var(--argentina-white);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 3px solid var(--argentina-blue);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo h2 {
+  color: var(--argentina-blue-dark);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  transition: all 0.3s;
+  position: relative;
+  padding: 5px 0;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--argentina-blue);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--argentina-blue);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* About Section - Primera franja celeste */
+.about {
+  padding: 140px 0 100px;
+  background: linear-gradient(135deg, var(--argentina-blue) 0%, var(--argentina-blue-dark) 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de sol argentino */
+.about::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: var(--argentina-gold);
+  border-radius: 50%;
+  opacity: 0.7;
+  box-shadow: 0 0 60px 30px var(--argentina-gold);
+  z-index: 1;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.about-text h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: var(--argentina-gold);
+  position: relative;
+  display: inline-block;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: rgba(252, 191, 73, 0.3);
+  z-index: -1;
+}
+
+.about-text h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #ecf0f1;
+  font-weight: 500;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.btn {
+  padding: 14px 28px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn.primary {
+  background: var(--argentina-gold);
+  color: #333;
+}
+
+.btn.primary:hover {
+  background: #e9ad38;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.btn.secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn.secondary:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.profile-image-container {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 8px solid rgba(255,255,255,0.2);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  transition: all 0.5s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.05) rotate(3deg);
+  border-color: var(--argentina-gold);
+}
+
+/* Location with flag */
+.location {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: #ecf0f1;
+  background: rgba(0,0,0,0.1);
+  padding: 8px 16px;
+  border-radius: 30px;
+  width: fit-content;
+}
+
+.country-flag {
+  width: 24px;
+  height: auto;
+  border-radius: 2px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+/* Projects Section - Segunda franja blanca */
+.projects {
+  padding: 100px 0;
+  background: var(--argentina-white);
+  position: relative;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 3.5rem;
+  color: #2c3e50;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--argentina-blue);
+  border-radius: 2px;
+}
+
+/* Carousel Styles - Fixed Dimensions */
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+  max-width: 100%;
+}
+
+.projects-carousel {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.projects-track {
+  display: flex;
+  gap: 2rem;
+  transition: transform 0.5s ease;
+  justify-content: center;
+}
+
+/* Fixed width and height for project cards */
+.project-card {
+  width: 350px;
+  min-width: 350px;
+  max-width: 350px;
+  flex: 0 0 350px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: all 0.4s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 550px; /* Fixed height for all cards */
+  border: 1px solid #f0f0f0;
+}
+
+.project-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  border-color: #e0e0e0;
+}
+
+/* Fixed height for project images */
+.project-image {
+  position: relative;
+  height: 200px;
+  min-height: 200px;
+  max-height: 200px;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+  width: 100%;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.1);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  backdrop-filter: blur(3px);
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.overlay-content {
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.overlay-content h4 {
+  margin-bottom: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.overlay-links {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+}
+
+.overlay-btn {
+  padding: 10px 20px;
+  background: var(--argentina-blue);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.overlay-btn:hover {
+  background: var(--argentina-blue-dark);
+  transform: translateY(-3px);
+}
+
+.project-content {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-content h3 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.project-content p {
+  margin-bottom: 1.2rem;
+  color: #666;
+  flex-grow: 1;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Technology Items with Icons */
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 1.2rem 0;
+}
+
+.tech-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #f8f9fa;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #333;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.tech-item:hover {
+  background: #e9ecef;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.08);
+}
+
+.tech-icon {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.tech-name {
+  color: #495057;
+}
+
+/* Project links at the bottom */
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.project-links .btn {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 0.85rem;
+}
+
+/* Carousel buttons */
+.carousel-btn {
+  background: var(--argentina-blue);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(117, 170, 219, 0.3);
+  z-index: 10;
+}
+
+.carousel-btn:hover {
+  background: var(--argentina-blue-dark);
+  transform: scale(1.1);
+}
+
+.carousel-btn:active {
+  transform: scale(0.95);
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 2.5rem;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: #d1d1d1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: var(--argentina-blue);
+  transform: scale(1.3);
+}
+
+.indicator:hover {
+  background: #b1b1b1;
+}
+
+/* Skills Section - Tercera franja celeste */
+.skills {
+  padding: 100px 0;
+  background: linear-gradient(135deg, var(--argentina-blue-dark) 0%, var(--argentina-blue) 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de sol argentino en skills */
+.skills::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: var(--argentina-gold);
+  border-radius: 50%;
+  opacity: 0.5;
+  box-shadow: 0 0 60px 30px var(--argentina-gold);
+}
+
+.skills .section-title {
+  color: white;
+}
+
+.skills .section-title::after {
+  background: var(--argentina-gold);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.skill-category {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.skill-category h3 {
+  margin-bottom: 1.5rem;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.skill-category h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--argentina-gold);
+  border-radius: 2px;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.skill-item {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.skill-item:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+}
+
+.additional-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.info-section {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.info-section:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.info-section h3 {
+  margin-bottom: 1.5rem;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.info-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--argentina-gold);
+  border-radius: 2px;
+}
+
+.cert-list {
+  list-style: none;
+}
+
+.cert-list li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.cert-list li:hover {
+  padding-left: 10px;
+  color: var(--argentina-gold);
+}
+
+.learning-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.learning-item {
+  background: var(--argentina-gold);
+  color: #333;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.learning-item:hover {
+  background: #e9ad38;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+/* Contact Section */
+.contact {
+  padding: 100px 0;
+  background: #2c3e50;
+  color: white;
+  position: relative;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--argentina-blue) 0%, var(--argentina-blue-dark) 100%);
+}
+
+.contact .section-title {
+  color: white;
+}
+/* Reemplazo completo para los estilos del selector de idiomas */
+.language-selector {
+  margin-left: 1rem;
+  position: relative;
+}
+
+.language-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.language-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 8px 12px;
+  border: 2px solid var(--argentina-blue);
+  border-radius: 5px;
+  background: white;
+  color: #333;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.language-button:hover {
+  border-color: var(--argentina-blue-dark);
+  background: #f8f9fa;
+}
+
+.flag-icon {
+  width: 20px !important;
+  height: 15px !important;
+  object-fit: cover;
+  border-radius: 2px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.dropdown-arrow {
+  font-size: 0.7rem;
+  transition: transform 0.3s;
+}
+
+.language-dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.language-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 2px solid var(--argentina-blue);
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s;
+  z-index: 1000;
+  width: 100%;
+}
+
+.language-dropdown:hover .language-options {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  background: white;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.language-option:hover {
+  background: #f8f9fa;
+}
+
+.language-option.active {
+  background: #e3f2fd;
+  color: var(--argentina-blue-dark);
+}
+
+/* Asegurarse de que las imágenes de banderas siempre se muestren */
+.language-option img,
+.language-button img {
+  display: inline-block !important;
+  width: 20px !important;
+  height: 15px !important;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+/* Ajuste para la bandera en la ubicación */
+.location .country-flag {
+  width: 24px !important;
+  height: 18px !important;
+  object-fit: cover;
+  border-radius: 2px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.flag-display {
+  max-width: 150px;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  border: 1px solid #ddd;
+}
+/* Contact Section - Estilo Premium */
+.contact {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+  color: white;
+  position: relative;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--argentina-blue) 0%, var(--argentina-blue-dark) 100%);
+}
+
+.contact .section-title {
+  color: white;
+}
+
+.contact .section-title::after {
+  background: var(--argentina-gold);
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-info {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.contact-info:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.contact-info h3 {
+  margin-bottom: 1.5rem;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.contact-info h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--argentina-gold);
+  border-radius: 2px;
+}
+
+.contact-info p {
+  margin-bottom: 2rem;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-item {
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contact-item strong {
+  color: var(--argentina-blue);
+  font-weight: 600;
+  min-width: 80px;
+}
+
+.social-links {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 1.2rem;
+}
+
+.social-links a {
+  color: white;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.1);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.social-links a:hover {
+  background: var(--argentina-blue);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.contact-form {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.contact-form:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.form-group {
+  margin-bottom: 1.8rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--argentina-blue);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(117, 170, 219, 0.3);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.contact-form .btn.primary {
+  background: var(--argentina-gold);
+  color: #333;
+  width: 100%;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(252, 191, 73, 0.3);
+}
+
+.contact-form .btn.primary:hover {
+  background: #e9ad38;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(252, 191, 73, 0.4);
+}
+
+/* Footer - Estilo Premium */
+.footer {
+  background: #1a252f;
+  color: white;
+  text-align: center;
+  padding: 3rem 0;
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--argentina-blue) 0%, var(--argentina-blue-dark) 100%);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.5px;
+}
+
+.footer-logo span {
+  color: var(--argentina-blue);
+}
+
+.footer-nav {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-nav a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.footer-nav a:hover {
+  color: var(--argentina-blue);
+}
+
+.footer-social {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.footer-social a {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+  background: var(--argentina-blue);
+  transform: translateY(-5px);
+}
+
+.footer-bottom {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+}
+
+.footer-bottom a {
+  color: var(--argentina-blue);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+  color: var(--argentina-gold);
+}
+
+/* Bandera argentina en el footer */
+.argentina-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.argentina-stripe {
+  width: 30px;
+  height: 6px;
+  margin: 0 2px;
+}
+
+.argentina-stripe.blue {
+  background-color: var(--argentina-blue);
+}
+
+.argentina-stripe.white {
+  background-color: white;
+}
+.argentina-stripe.yellow {
+  background-color: yellow;
+}
+/* Responsive para Contact y Footer */
+@media (max-width: 992px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .footer-nav {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-info,
+  .contact-form {
+    padding: 2rem;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  .footer-nav {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-info h3 {
+    font-size: 1.5rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 12px;
+  }
+  
+  .contact-form .btn.primary {
+    padding: 12px;
+  }
+  
+  .footer {
+    padding: 2rem 0;
+  }
+}
+/* Visor de imágenes a pantalla completa */
+.image-viewer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.image-viewer-container {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.fullscreen-image {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 5px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+}
+
+.close-viewer {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.close-viewer:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+/* Botón para expandir imagen */
+.expand-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.expand-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Corrección para el botón de GitHub */
+.project-card .btn.secondary {
+  background: transparent;
+  color: var(--argentina-blue-dark);
+  border: 2px solid var(--argentina-blue);
+}
+
+.project-card .btn.secondary:hover {
+  background: rgba(117, 170, 219, 0.1);
+  color: var(--argentina-blue-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Ajustes responsive para el visor de imágenes */
+@media (max-width: 768px) {
+  .close-viewer {
+    top: -30px;
+    right: -10px;
+    width: 35px;
+    height: 35px;
+  }
+  
+  .image-viewer-container {
+    max-width: 95%;
+  }
+}
+/* Estilos para los iconos de habilidades */
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.skill-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.skill-name {
+  white-space: nowrap;
+}
+
+/* Estilos para los iconos de certificaciones */
+.cert-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cert-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Estilos para los iconos de aprendizaje */
+.learning-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--argentina-gold);
+  color: #333;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.learning-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.learning-name {
+  white-space: nowrap;
+}
+
+/* Efectos hover mejorados */
+.skill-item:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.learning-item:hover {
+  background: #e9ad38;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.cert-item:hover .cert-icon {
+  background: var(--argentina-gold);
+  color: #333;
+  transform: scale(1.1);
+}
+/* Estilos para mensajes de estado del formulario */
+.form-message {
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+.form-message.success {
+  background: rgba(76, 175, 80, 0.2);
+  border: 1px solid rgba(76, 175, 80, 0.5);
+  color: #4CAF50;
+}
+
+.form-message.error {
+  background: rgba(244, 67, 54, 0.2);
+  border: 1px solid rgba(244, 67, 54, 0.5);
+  color: #F44336;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Navbar móvil mejorada */
+@media (max-width: 768px) {
+  .header {
+    padding: 0.5rem 0;
+  }
+  
+  .nav {
+    flex-direction: column;
+    padding: 0.5rem;
+  }
+  
+  .logo h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .nav-links a {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    background: rgba(117, 170, 219, 0.1);
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .language-selector {
+    margin: 0.5rem 0 0;
+  }
+  
+  /* Menú hamburguesa (opcional) */
+  .mobile-menu-toggle {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--argentina-blue);
+    cursor: pointer;
+    z-index: 1001;
+  }
+  
+  .nav-links.mobile-hidden {
+    display: none;
+  }
+  
+  .nav-links.mobile-visible {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+}
+/* About section móvil mejorada */
+@media (max-width: 768px) {
+  .about {
+    padding: 100px 0 60px;
+    text-align: center;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .about-text h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .about-text h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .about-text p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .location {
+    justify-content: center;
+    margin: 0 auto 1rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .cta-buttons .btn {
+    width: 80%;
+    text-align: center;
+  }
+  
+  .profile-image-container {
+    width: 200px;
+    height: 200px;
+    margin-top: 1rem;
+  }
+  
+  /* Ajuste para el sol argentino en móvil */
+  .about::before {
+    width: 150px;
+    height: 150px;
+    top: -75px;
+    right: -75px;
+  }
+}
+
+/* Ajustes para móviles muy pequeños */
+@media (max-width: 375px) {
+  .about-text h1 {
+    font-size: 1.8rem;
+  }
+  
+  .profile-image-container {
+    width: 180px;
+    height: 180px;
+  }
+}
+/* Projects section móvil mejorada */
+@media (max-width: 768px) {
+  .projects {
+    padding: 60px 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .carousel-container {
+    margin: 1.5rem 0;
+    position: relative;
+    padding: 0 1rem;
+  }
+  
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    z-index: 10;
+  }
+  
+  .carousel-btn.prev {
+    left: -5px;
+  }
+  
+  .carousel-btn.next {
+    right: -5px;
+  }
+  
+  .project-card {
+    width: 100% !important;
+    min-width: 100% !important;
+    margin: 0 auto;
+    height: auto !important;
+    min-height: 500px;
+  }
+  
+  .project-image {
+    height: 180px;
+    min-height: 180px;
+  }
+  
+  .project-content {
+    padding: 1.2rem;
+  }
+  
+  .project-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .project-content p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .technologies {
+    gap: 0.5rem;
+    margin: 0.8rem 0;
+  }
+  
+  .tech-item {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  
+  .tech-icon {
+    font-size: 1rem;
+  }
+  
+  .project-links {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .project-links .btn {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 0.8rem;
+  }
+  
+  .carousel-indicators {
+    margin-top: 1.5rem;
+  }
+  
+  .indicator {
+    width: 10px;
+    height: 10px;
+  }
+}
+/* Mejoras generales para móviles */
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  section {
+    scroll-margin-top: 120px;
+  }
+  
+  .btn {
+    padding: 12px 20px;
+    font-size: 0.85rem;
+  }
+  
+  /* Ajustes para el visor de imágenes */
+  .image-viewer-overlay {
+    padding: 10px;
+  }
+  
+  .close-viewer {
+    top: -20px;
+    right: -10px;
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* Ajustes para orientación landscape en móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+  .about {
+    padding: 80px 0 40px;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .profile-image-container {
+    width: 150px;
+    height: 150px;
+  }
+}
+/* Selector de idiomas en móviles */
+@media (max-width: 768px) {
+  .language-selector {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .language-button {
+    width: 100%;
+    max-width: 200px;
+    justify-content: center;
+  }
+  
+  .language-options {
+    width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .language-dropdown:hover .language-options {
+    transform: translateX(-50%);
+  }
+}
+@media (max-width: 768px) {
+  /* Ocultar el logo en móviles */
+  .logo {
+    display: none;
+  }
+  
+  /* Resto de tus estilos móviles... */
+}
